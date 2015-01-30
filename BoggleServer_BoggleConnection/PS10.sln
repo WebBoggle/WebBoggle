@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleConnection", "BoggleConnection\BoggleConnection.csproj", "{4A76E3F9-DBAF-4EF0-96B4-463DC63C0684}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB44A774-EC2B-443B-8565-DA1CEC8AA2BA}"
+	ProjectSection(SolutionItems) = preProject
+		BoggleBoard.dll = BoggleBoard.dll
+		BoggleBoard.XML = BoggleBoard.XML
+		dictionary.txt = dictionary.txt
+		DS-DIGI.TTF = DS-DIGI.TTF
+		MySql.Data.dll = MySql.Data.dll
+		StringSocket.dll = StringSocket.dll
+		StringSocket.XML = StringSocket.XML
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleClient", "BoggleClient\BoggleClient.csproj", "{3EE3D874-8D01-472A-8B96-1D0F00874D26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleServer", "BoggleServer\BoggleServer.csproj", "{60D004B8-FD61-4C8F-B126-B2A99A30AD96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleClientTest", "BoggleClientTest\BoggleClientTest.csproj", "{B3D2C72D-7266-4544-A6DE-DAC6CF9731BE}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A76E3F9-DBAF-4EF0-96B4-463DC63C0684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A76E3F9-DBAF-4EF0-96B4-463DC63C0684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A76E3F9-DBAF-4EF0-96B4-463DC63C0684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A76E3F9-DBAF-4EF0-96B4-463DC63C0684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE3D874-8D01-472A-8B96-1D0F00874D26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE3D874-8D01-472A-8B96-1D0F00874D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE3D874-8D01-472A-8B96-1D0F00874D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE3D874-8D01-472A-8B96-1D0F00874D26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60D004B8-FD61-4C8F-B126-B2A99A30AD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D004B8-FD61-4C8F-B126-B2A99A30AD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D004B8-FD61-4C8F-B126-B2A99A30AD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D004B8-FD61-4C8F-B126-B2A99A30AD96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3D2C72D-7266-4544-A6DE-DAC6CF9731BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3D2C72D-7266-4544-A6DE-DAC6CF9731BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3D2C72D-7266-4544-A6DE-DAC6CF9731BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3D2C72D-7266-4544-A6DE-DAC6CF9731BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

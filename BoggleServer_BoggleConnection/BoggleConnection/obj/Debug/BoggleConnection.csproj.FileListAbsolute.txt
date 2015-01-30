@@ -1,0 +1,7 @@
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleConnection\bin\Debug\BoggleConnection.dll
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleConnection\bin\Debug\BoggleConnection.pdb
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleConnection\bin\Debug\StringSocket.dll
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleConnection\bin\Debug\StringSocket.xml
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleConnection\obj\Debug\BoggleConnection.csprojResolveAssemblyReference.cache
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleConnection\obj\Debug\BoggleConnection.dll
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleConnection\obj\Debug\BoggleConnection.pdb

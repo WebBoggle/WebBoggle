@@ -1,0 +1,15 @@
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\bin\Debug\BoggleClient.exe.config
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\bin\Debug\BoggleClient.exe
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\bin\Debug\BoggleClient.pdb
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\bin\Debug\BoggleConnection.dll
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\bin\Debug\StringSocket.dll
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\bin\Debug\BoggleConnection.pdb
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\bin\Debug\StringSocket.xml
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\obj\Debug\BoggleClient.csprojResolveAssemblyReference.cache
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\obj\Debug\BoggleClient.GameForm.resources
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\obj\Debug\BoggleClient.Prompt.resources
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\obj\Debug\BoggleClient.Properties.Resources.resources
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\obj\Debug\BoggleClient.Summary.resources
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\obj\Debug\BoggleClient.csproj.GenerateResource.Cache
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\obj\Debug\BoggleClient.exe
+C:\Users\Hayden\Documents\Visual Studio 2013\Projects\PS10\BoggleClient\obj\Debug\BoggleClient.pdb

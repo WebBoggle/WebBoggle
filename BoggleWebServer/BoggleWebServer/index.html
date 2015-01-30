@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Boggle Game</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+    <style>
+        table {
+            min-height: 400px;
+            width: 60%;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .gameButton {
+            height: 100%;
+            width: 100%;
+            font-size: 30px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            background-color: #0066FF;
+            color: white;
+        }
+
+        input[type='button']:disabled, button:disabled {
+            background-color: #3385FF;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        User Name
+        <input id="user">
+        <button id="ready">Ready</button>  <!--"http://localhost:3012/Ready?user=[usernameentered]&userid=[userid] -->
+        <button id="update">Initialize</button> <!--"http://localhost:3012/Update?type=all&userid=[updateID] -->
+        <button id="refresh"> Refresh </button> <!--"http://localhost:3012/Update?type=variables&userid=[updateID] -->
+    </p>
+    <p>
+        <span id="oppName"></span>
+        <div id="updates"></div>
+    </p>
+    <table>
+        <tr>
+            <td>
+                <button id="b0" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b1" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b2" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b3" class="gameButton"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="b4" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b5" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b6" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b7" class="gameButton"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="b8" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b9" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b10" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b11" class="gameButton"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="b12" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b13" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b14" class="gameButton"></button>
+            </td>
+            <td>
+                <button id="b15" class="gameButton"></button>
+            </td>
+        </tr>
+    </table>
+   
+        <p>
+
+            <input id="word">
+
+            <button id="play" type="submit">Play Word</button><!--http://localhost:3012/PlayWord/?userID=[updateID]&word=[wordentered]-->
+        </p>
+  
+
+    <footer>
+
+ 
+        <script>
+            var user = "";
+            var $updates = $("#updates");
+            var url = "http://localhost:3012/"
+
+            //the user id that is sent to the server
+            var updateID =  Math.random().toString(36).substring(7);
+            /*
+            * Tell the server we're ready to play. Show game status.
+            */
+            $("#ready").click(function () {
+                
+                user = $("#user").val();
+                if (user.length < 1)
+                {
+                    alert("Please enter a user name");
+                    return false;
+                }
+                var userID; 
+                var d = new Date();
+                
+                updateID += d.getMilliseconds();
+                var data = {user: user, userID: updateID};
+                $.getJSON(url+"Ready/", data, function (data) {
+                     //save this as a global variable for use later
+                    $updates.html(data);
+                    $("#ready").prop("disabled", true);
+                });
+            });
+
+
+
+            //request update from server
+            //request total update - initialize everything
+            $("#update").click(function () {
+                var data = { type: "all", userID: updateID };
+                $.getJSON(url+"Update/", data, function (data) {
+                    $updates.html("");
+                    if (data["status"] =="ongoing")
+                    {
+                        $updates.html("");
+                        //update everything
+                        $updates.append("STATUS: " + data["status"]);
+                        $updates.append(" SCORE: " + data["score"]);
+                        $updates.append(" TIME LEFT: " + data["timeLeft"])
+                        $("#oppName").append(" PLAYING AGAINST: " + data["oppName"]);
+
+                        //put letters on board
+                        var board = data["board"];
+                        for (i = 0; i < 16; i++) {
+                            var currentID = "b" + i;
+                            $("#" + currentID).html(board[i]);
+                        }
+                    }
+                    else
+                    {
+                        //show we're waiting
+                        $updates.append("waiting");
+                    }
+                                      
+                });
+            });
+
+            $("#refresh").click(function () {
+                var data = { type: "variables", userID: updateID };
+
+                $.getJSON(url + "Update/", data, function (data) {
+                    $updates.html("");
+                    $updates.append("STATUS: " + data["status"]);
+                    $updates.append(" SCORE: " + data["score"]);
+                    $updates.append(" TIME LEFT: " + data["timeLeft"])
+                });
+            });
+
+            $(".gameButton").click(function (e) {
+                var val2 = $("#word").val() + $(this).text();
+                $(this).attr("disabled", true);
+                $("#word").val(val2);
+            });
+
+            $("#play").click(function () {
+                //send word to server
+                $(".gameButton").attr("disabled", false);
+                var w = $("#word").val();
+                var data = { userID: updateID, word: w };
+                $.get("http://localhost:3012/PlayWord/", data);
+                $("#word").val("");
+                    
+            
+            });
+
+
+        </script>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+Run Boggle Server: BoggleServer [time limit in seconds] [path to legal word list]
