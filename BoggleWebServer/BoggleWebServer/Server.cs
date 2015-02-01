@@ -18,10 +18,9 @@ namespace BoggleWebServer
     class Server
     {
 
-
+        
         protected static volatile Dictionary<string, BoggleConnection> IdsToConnections;
         private static Object thisLock = new Object();
-      
 
         /// <summary>
         /// 
@@ -115,12 +114,47 @@ namespace BoggleWebServer
             communicationPipe comm2 = new communicationPipe(ServerRoutes.PLAYWORD);
             communicationPipe comm3 = new communicationPipe(ServerRoutes.READY);
 
+            Thread th = new Thread(clean);
+            th.Start();
+
             Console.Read();
 
         }
 
+        /// <summary>
+        /// Periodically clears out the list of ids to connections to avoid extra memory usage
+        /// </summary>
+        private static void clean()
+        {
+            TimeSpan interval = new TimeSpan(0, 0, 30, 0, 0); //30 minutes
+            Thread.Sleep(interval);
+            List<string> toDelete = new List<string>();
+            lock (thisLock)
+            {
+                foreach (var k in IdsToConnections.Keys)
+                {
+                    //if the game is over, flag it for removal
+                    if (IdsToConnections[k].gameTerminated)
+                    {
+                        toDelete.Add(k);
+                    }
+                }
+            }
+            //sleep a little extra in case a game just finished
+            TimeSpan gracePeriod = new TimeSpan(0, 0, 10, 0, 0);
+            Thread.Sleep(gracePeriod);
 
+            lock(thisLock)
+            {
+                foreach(var k in toDelete)
+                {
+                    IdsToConnections.Remove(k);
+                }
+            }
 
+            clean();
+
+        }
 
         public class communicationPipe
         {

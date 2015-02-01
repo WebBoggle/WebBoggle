@@ -10,3 +10,6 @@ C:\Users\Hayden\Documents\Visual Studio 2013\Projects\BoggleWebServer\BoggleWebS
 C:\Users\Hayden\Documents\Visual Studio 2013\Projects\BoggleWebServer\BoggleWebServer\bin\Debug\BoggleConnection.pdb
 C:\Users\Hayden\Documents\Visual Studio 2013\Projects\BoggleWebServer\BoggleWebServer\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Hayden\Documents\Visual Studio 2013\Projects\BoggleWebServer\BoggleWebServer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hayden\Desktop\WebBoggle\BoggleWebServer\BoggleWebServer\bin\Debug\BoggleWebServer.exe.config
+C:\Users\Hayden\Desktop\WebBoggle\BoggleWebServer\BoggleWebServer\obj\Debug\BoggleWebServer.exe
+C:\Users\Hayden\Desktop\WebBoggle\BoggleWebServer\BoggleWebServer\obj\Debug\BoggleWebServer.pdb
