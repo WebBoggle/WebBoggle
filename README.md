@@ -14,7 +14,7 @@ Web Client: An webpage UI for the game. Talks to Web Server through ajax, Web Se
 Connection. 
 
 
-To run local version: 
-1 run Boggle Server: BoggleServer 200 dictionary.txt
-2 run Web Server: cd BoggleWebServer/BoggleWebServer/bin/Debug; BogleWebServer
+To run local version: <br>
+1 run Boggle Server: BoggleServer 200 dictionary.txt <br>
+2 run Web Server: cd BoggleWebServer/BoggleWebServer/bin/Debug; BogleWebServer <br>
 3 view client @ http://localhost:3012
