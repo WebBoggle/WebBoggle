@@ -8,7 +8,7 @@ namespace BoggleWebServer
 {
     class ServerRoutes
     {
-        private const string baseIP = "http://54.149.67.141";
+        private const string baseIP = "localhost";
         private const string portNum = ":3012/";
         public const string INDEX = baseIP+portNum;
         public const string UPDATE = baseIP + portNum + "Update/";
