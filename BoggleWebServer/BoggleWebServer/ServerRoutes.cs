@@ -8,12 +8,12 @@ namespace BoggleWebServer
 {
     class ServerRoutes
     {
-        private const string baseIP = "http://54.148.31.242";
         private const string portNum = ":3012/";
-        public const string INDEX = baseIP+portNum;
-        public const string UPDATE = baseIP + portNum + "Update/";
-        public const string PLAYWORD = baseIP+portNum + "PlayWord/";
-        public const string READY = baseIP+portNum + "Ready/";
+        public const string publicIP = "http://locahost"; //we add localhost prefix for debugging purposes
+        public const string INDEX = publicIP+portNum;
+        public const string UPDATE = publicIP + portNum + "Update/";
+        public const string PLAYWORD = publicIP+portNum + "PlayWord/";
+        public const string READY = publicIP+portNum + "Ready/";
    
     }
 }

@@ -14,11 +14,9 @@ namespace BoggleWebServer
 
     public delegate void ContextReceived(object payload);
 
-
     class Server
     {
 
-        
         protected static volatile Dictionary<string, BoggleConnection> IdsToConnections;
         private static Object thisLock = new Object();
 
@@ -107,12 +105,12 @@ namespace BoggleWebServer
         {
             IdsToConnections = new Dictionary<string, BoggleConnection>();
             //handle initial connections
-            communicationPipe comm = new communicationPipe(ServerRoutes.INDEX);
+            communicationPipe comm = new communicationPipe(ServerRoutes.INDEX, "index/");
 
             //handle update requests
-            communicationPipe comm1 = new communicationPipe(ServerRoutes.UPDATE);
-            communicationPipe comm2 = new communicationPipe(ServerRoutes.PLAYWORD);
-            communicationPipe comm3 = new communicationPipe(ServerRoutes.READY);
+            communicationPipe comm1 = new communicationPipe(ServerRoutes.UPDATE, "update/");
+            communicationPipe comm2 = new communicationPipe(ServerRoutes.PLAYWORD, "playword/");
+            communicationPipe comm3 = new communicationPipe(ServerRoutes.READY, "ready/");
 
             Thread th = new Thread(clean);
             th.Start();
@@ -122,7 +120,7 @@ namespace BoggleWebServer
         }
 
         /// <summary>
-        /// Periodically clears out the list of ids to connections to avoid extra memory usage
+        /// Periodically clears out the dictionary of ids to connections to save memory
         /// </summary>
         private static void clean()
         {
@@ -162,10 +160,11 @@ namespace BoggleWebServer
             private HttpListener listener;
             private List<string> pendingActions;
 
-            public communicationPipe(string prefix)
+            public communicationPipe(string prefix, string area)
             {
                 listener = new HttpListener();
                 listener.Prefixes.Add(prefix);
+                listener.Prefixes.Add("http://*:3012/" + area); //listen for anyone trying to connect to 3012
                 listener.Start();
                 switch (prefix)
                 {
@@ -202,13 +201,8 @@ namespace BoggleWebServer
 
                 sendString(context, indexPage);
 
-
-
                 //wait for more communications
                 listener.BeginGetContext(waitForContext, listener);
-
-
-
 
             }
 
@@ -216,7 +210,7 @@ namespace BoggleWebServer
             {
                 HttpListener listener = (HttpListener)result.AsyncState;
                 HttpListenerContext context = listener.EndGetContext(result);
-
+              
                 var type = context.Request.QueryString["type"];
                 var updateForId = context.Request.QueryString["userID"];
                 if (type == "all")
@@ -282,9 +276,7 @@ namespace BoggleWebServer
             #region Transmission Util
             private void sendString(HttpListenerContext context, string responseString)
             {
-
                 HttpListenerRequest request = context.Request;
-
                 // Obtain a response object.
                 HttpListenerResponse response = context.Response;
                 // Construct a response. 
@@ -297,10 +289,6 @@ namespace BoggleWebServer
                 System.IO.Stream output = response.OutputStream;
                 output.Write(buffer, 0, buffer.Length);
                 output.Close();
-
-
-
-
             }
 
            private void closeOutput(HttpListenerContext context)
@@ -312,8 +300,6 @@ namespace BoggleWebServer
             }
             #endregion
         }
-
-       
 
     }
 

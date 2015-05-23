@@ -35,9 +35,9 @@
     <p>
         User Name
         <input id="user">
-        <button id="ready">Ready</button>  <!--"http://localhost:3012/Ready?user=[usernameentered]&userid=[userid] -->
-        <button id="update">Initialize</button> <!--"http://localhost:3012/Update?type=all&userid=[updateID] -->
-        <button id="refresh"> Refresh </button> <!--"http://localhost:3012/Update?type=variables&userid=[updateID] -->
+        <button id="ready">Ready</button>  <!--this is the request "http://52.25.155.135/Ready?user=[usernameentered]&userid=[userid] -->
+        <button id="update">Initialize</button> <!-- this is the request "http://52.25.155.135/Update?type=all&userid=[updateID] -->
+        <button id="refresh"> Refresh </button> <!-- this is the request "http://52.25.155.135/Update?type=variables&userid=[updateID] -->
     </p>
     <p>
         <span id="oppName"></span>
@@ -116,7 +116,7 @@
         <script>
             var user = "";
             var $updates = $("#updates");
-            var url = "http://localhost:3012/"
+            var url = "http://52.25.155.135:3012/" //this is the public url of the AWS EC2 instance
 
             //the user id that is sent to the server
             var updateID =  Math.random().toString(36).substring(7);
@@ -198,7 +198,7 @@
                 $(".gameButton").attr("disabled", false);
                 var w = $("#word").val();
                 var data = { userID: updateID, word: w };
-                $.get("http://localhost:3012/PlayWord/", data);
+                $.get("http://52.25.155.135/PlayWord/", data);
                 $("#word").val("");
                     
             
