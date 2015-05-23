@@ -198,7 +198,7 @@
                 $(".gameButton").attr("disabled", false);
                 var w = $("#word").val();
                 var data = { userID: updateID, word: w };
-                $.get("http://52.25.4.200/PlayWord/", data);
+                $.get("http://52.25.4.200:3012/PlayWord/", data);
                 $("#word").val("");
                     
             
